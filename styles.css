@@ -179,9 +179,9 @@ p {
 }
 
 .gallery-item--11 img {
-    object-position: center 38%;
+    object-position: center 28%;
     transform: scale(1.06);
-    transform-origin: center 38%;
+    transform-origin: center 28%;
 }
 
 .gallery-item--15 img {
