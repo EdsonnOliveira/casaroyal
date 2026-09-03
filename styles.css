@@ -136,6 +136,7 @@ p {
     width: 100%;
     aspect-ratio: 4 / 3;
     border-radius: 8px;
+    isolation: isolate;
 }
 
 .gallery-item img {
@@ -143,6 +144,8 @@ p {
     height: 100%;
     object-fit: cover;
     object-position: center center;
+    border-radius: inherit;
+    display: block;
 }
 
 .gallery-item--5 img {
@@ -164,15 +167,15 @@ p {
 }
 
 .gallery-item--9 img {
-    object-position: center 48%;
+    object-position: center 28%;
     transform: scale(1.06);
-    transform-origin: center 48%;
+    transform-origin: center 28%;
 }
 
 .gallery-item--10 img {
-    object-position: center 58%;
-    transform: scale(1.08);
-    transform-origin: center 58%;
+    object-position: center 28%;
+    transform: scale(1.06);
+    transform-origin: center 28%;
 }
 
 .gallery-item--11 img {
@@ -188,15 +191,21 @@ p {
 }
 
 .gallery-item--16 img {
-    object-position: center 55%;
+    object-position: center 28%;
     transform: scale(1.06);
-    transform-origin: center 55%;
+    transform-origin: center 28%;
 }
 
 .gallery-item--17 img {
-    object-position: center 50%;
-    transform: scale(0.96);
-    transform-origin: center center;
+    object-position: center 28%;
+    transform: scale(1.06);
+    transform-origin: center 28%;
+}
+
+.gallery-item--19 img {
+    object-position: center 28%;
+    transform: scale(1.06);
+    transform-origin: center 28%;
 }
 
 .cta-button {
