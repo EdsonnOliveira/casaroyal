@@ -21,8 +21,6 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background: url('cortina-background.jpg') no-repeat right center;
-    background-size: cover;
     min-height: 100vh;
 }
 
