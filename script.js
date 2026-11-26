@@ -44,6 +44,7 @@ choiceButtons.forEach((button, index) => {
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const automationVideo = document.querySelector('.automation-video');
+const automationSound = document.querySelector('.automation-sound');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (automationVideo) {
   if (prefersReducedMotion) {
@@ -63,5 +64,18 @@ if (automationVideo) {
     observer.observe(automationVideo);
   } else {
     automationVideo.setAttribute('autoplay', '');
+  }
+  if (automationSound) {
+    automationSound.addEventListener('click', () => {
+      const enableSound = automationVideo.muted;
+      automationVideo.muted = !enableSound;
+      automationSound.setAttribute('aria-pressed', String(enableSound));
+      automationSound.setAttribute('aria-label', enableSound ? 'Desativar som do vídeo' : 'Ativar som do vídeo');
+      automationSound.textContent = enableSound ? 'Som ligado' : 'Ativar som';
+      if (enableSound) {
+        const playPromise = automationVideo.play();
+        if (playPromise) playPromise.catch(() => {});
+      }
+    });
   }
 }
