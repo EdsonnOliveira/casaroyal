@@ -42,3 +42,26 @@ choiceButtons.forEach((button, index) => {
   });
 });
 document.getElementById('year').textContent = new Date().getFullYear();
+
+const automationVideo = document.querySelector('.automation-video');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (automationVideo) {
+  if (prefersReducedMotion) {
+    automationVideo.removeAttribute('autoplay');
+    automationVideo.pause();
+  } else if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const playPromise = automationVideo.play();
+          if (playPromise) playPromise.catch(() => {});
+        } else {
+          automationVideo.pause();
+        }
+      });
+    }, { threshold: 0.35 });
+    observer.observe(automationVideo);
+  } else {
+    automationVideo.setAttribute('autoplay', '');
+  }
+}
